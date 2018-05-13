@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -8,6 +9,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
 var Employee = /** @class */ (function () {
     function Employee(name, secondName, experience) {
         this.name = name;
@@ -21,6 +23,7 @@ var Employee = /** @class */ (function () {
     };
     return Employee;
 }());
+exports.Employee = Employee;
 var Developer = /** @class */ (function (_super) {
     __extends(Developer, _super);
     function Developer(name, secondName, experience, manager) {
@@ -37,6 +40,7 @@ var Developer = /** @class */ (function (_super) {
     };
     return Developer;
 }(Employee));
+exports.Developer = Developer;
 var Designer = /** @class */ (function (_super) {
     __extends(Designer, _super);
     function Designer(name, secondName, experience, manager, effectivnessCoef) {
@@ -51,6 +55,7 @@ var Designer = /** @class */ (function (_super) {
     };
     return Designer;
 }(Employee));
+exports.Designer = Designer;
 var Manager = /** @class */ (function (_super) {
     __extends(Manager, _super);
     function Manager(name, secondName, experience) {
@@ -73,6 +78,7 @@ var Manager = /** @class */ (function (_super) {
     };
     return Manager;
 }(Employee));
+exports.Manager = Manager;
 var Departament = /** @class */ (function () {
     function Departament() {
         this.listOfManagers = [];
@@ -87,36 +93,11 @@ var Departament = /** @class */ (function () {
                 emp = val.team.filter(function (e) { return e.name === name && e.secondName === secondName; })[0];
             }
         });
-        console.log(emp.name + ", " + emp.secondName + ": got salary: " + emp.salary + " ");
+        return emp.name + " " + emp.secondName + ": got salary:" + emp.salary;
     };
     Departament.prototype.addManager = function (manager) {
         this.listOfManagers.push(manager);
     };
     return Departament;
 }());
-var dep = new Departament();
-var man = new Manager("Scott", "Siver", 3);
-dep.addManager(man);
-var dev1 = new Developer("Ann", "Air", 10, man);
-var dev2 = new Developer("Tom", "Cruew", 2, man);
-var des1 = new Designer("Liza", "Drow", 7, man, 0.9);
-//let des2: Designer = new Designer('Lara', "Nite", 5, man, 0.8);
-man.addToTeam(dev1);
-man.addToTeam(dev2);
-man.addToTeam(des1);
-//man.addToTeam(des2);
-dev1.giveSalary(500);
-dev2.giveSalary(500);
-des1.giveSalary(400);
-//des2.giveSalary(400);
-man.giveSalary(600);
-dep.giveSalary("Ann", "Air");
-dep.giveSalary("Liza", "Drow");
-dep.giveSalary("Tom", "Cruew");
-dep.giveSalary("Scott", "Siver");
-//dep.giveSalary("Lara", "Nite");
-console.log('' + dev1);
-console.log('' + man);
-//console.log(dev1);
-//console.log(dev2);
-//console.log(des1);
+exports.Departament = Departament;

@@ -65,20 +65,19 @@ exports.diagonalReverse = diagonalReverse;
 // Write a function game() number-guessing game, that takes 2 int parameters defining the range.
 // Using some kind of random function to generate random int from the range.
 // While user input isn't equal that number, print "Try again!". If user guess the number, congratulate him and exit.
-/*
-function game(param1:number, param2:number):void {
-    if (param1 - Math.floor(param1) !== 0 || param2 - Math.floor(param2) !== 0) return;
-    let random = Math.floor(Math.random() * (param2 - param1 + 1) + param1);
-    let userAnswer = +prompt("Enter number");
+function game(param1, param2) {
+    if (param1 - Math.floor(param1) !== 0 || param2 - Math.floor(param2) !== 0)
+        return;
+    var random = Math.floor(Math.random() * (param2 - param1 + 1) + param1);
+    var userAnswer = +prompt("Enter number");
     while (random !== userAnswer) {
         console.log('Try again!');
         userAnswer = +prompt("Enter number");
     }
     console.log('Gratz!');
 }
-let param1 = +prompt('Enter min value');
-let param2 = +prompt('Enter max value');
-*/
+var param1 = +prompt('Enter min value');
+var param2 = +prompt('Enter max value');
 //USAGE
 //game(param1, param2);
 //Define a function, which takes a string with N opening brackets ("[") and N closing brackets ("]"),
@@ -135,28 +134,26 @@ exports.decBin = decBin;
 //Write a ship battle game, which is similar to ex.8, except it takes 1 integer as an order of matrix,
 // randomly generates index (x, y) and checks user input (2 integers).
 // hard task: Visualize the game.
-/*
-function shipBattle():void {
-    let matrixOrder:number = +prompt('Enter matrix order');
-    let matrix:number[][] = genMatrix(matrixOrder);
-    let index:number = Math.floor(Math.random() * matrixOrder**2);
-    let userAnswer:string = prompt('Enter coordinates of ship separated by comma e.g. 1,1');
-    let splittedCoords:number[] = userAnswer.split(',').map(val => +val);
+function shipBattle() {
+    var matrixOrder = +prompt('Enter matrix order');
+    var matrix = genMatrix(matrixOrder);
+    var index = Math.floor(Math.random() * Math.pow(matrixOrder, 2));
+    var userAnswer = prompt('Enter coordinates of ship separated by comma e.g. 1,1');
+    var splittedCoords = userAnswer.split(',').map(function (val) { return +val; });
     while (matrix[index][0] !== splittedCoords[0] || matrix[index][1] !== splittedCoords[1]) {
         userAnswer = prompt('Try again! e.g. 1,1');
-        splittedCoords = userAnswer.split(',').map(val => +val);
+        splittedCoords = userAnswer.split(',').map(function (val) { return +val; });
     } //if only both coords are match loop breaks (only false || false ends loop);
-    console.log('Gratz! You find a ship!')
+    console.log('Gratz! You find a ship!');
 }
-function genMatrix(order:number):number[][] {
-    let result:number[][] = [];
-    for (let i = 1; i <= order; i++) {
-        for (let j = 1; j <= order; j++) {
-            result.push([i,j]);
+function genMatrix(order) {
+    var result = [];
+    for (var i = 1; i <= order; i++) {
+        for (var j = 1; j <= order; j++) {
+            result.push([i, j]);
         }
     }
-    return result
+    return result;
 }
-*/
 // USAGE
 // shipBattle();

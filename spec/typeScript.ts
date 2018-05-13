@@ -6,6 +6,7 @@ export function enter1(arg:string):string {
 /// Define a function sum() and a function multiply() that sums and multiplies (respectively)
 // all the numbers in an array of numbers. For example, sum([1, 2, 3, 4]) should return 10, and multiply([1, 2, 3, 4])
 // should return 24.
+
 export function sum(arg:number[]):number {
     return arg.reduce((lastValue, curr) => lastValue + curr);
 }
@@ -70,7 +71,7 @@ export function diagonalReverse(arr:number[][]):number[][] {
 // Write a function game() number-guessing game, that takes 2 int parameters defining the range.
 // Using some kind of random function to generate random int from the range.
 // While user input isn't equal that number, print "Try again!". If user guess the number, congratulate him and exit.
-/*
+
 function game(param1:number, param2:number):void {
     if (param1 - Math.floor(param1) !== 0 || param2 - Math.floor(param2) !== 0) return;
     let random = Math.floor(Math.random() * (param2 - param1 + 1) + param1);
@@ -83,7 +84,7 @@ function game(param1:number, param2:number):void {
 }
 let param1 = +prompt('Enter min value');
 let param2 = +prompt('Enter max value');
-*/
+
 //USAGE
 //game(param1, param2);
 
@@ -100,6 +101,7 @@ export function brackets(str:string):string {
     }
     return arr.length === 0 ? 'OK' : 'NOT OK';
 }
+
 //USAGE
 //console.log(brackets('[[]][]][]]][]'))
 
@@ -141,7 +143,7 @@ export function decBin(int:number):string {
 //Write a ship battle game, which is similar to ex.8, except it takes 1 integer as an order of matrix,
 // randomly generates index (x, y) and checks user input (2 integers).
 // hard task: Visualize the game.
-/*
+
 function shipBattle():void {
     let matrixOrder:number = +prompt('Enter matrix order');
     let matrix:number[][] = genMatrix(matrixOrder);
@@ -163,6 +165,6 @@ function genMatrix(order:number):number[][] {
     }
     return result
 }
-*/
+
 // USAGE
 // shipBattle();
